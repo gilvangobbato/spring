@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.github.gilvangobbato</groupId>
-    <artifactId>vendas</artifactId>
+    <groupId>com.github.gilvangobbato</groupId>
+    <artifactId>secao_3</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <parent>
@@ -17,29 +17,16 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-rest</artifactId>
+            <artifactId>spring-boot-starter</artifactId>
         </dependency>
-
-        <!-- starter web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
-<!--        &lt;!&ndash; starter data jpa &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-data-jpa</artifactId>-->
-<!--        </dependency>-->
-<!--        &lt;!&ndash; starter security &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-security</artifactId>-->
-<!--        </dependency>-->
-<!--        &lt;!&ndash; starter test &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-test</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -50,6 +37,5 @@
             </plugin>
         </plugins>
     </build>
-
 
 </project>
