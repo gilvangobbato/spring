@@ -1,25 +1,29 @@
 package com.github.gilvangobbato.domain.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "CLIENTE")
 public class Cliente {
-    private Integer id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    @Column(name = "NOME", length = 100)
     private String nome;
 
     public Cliente() {
     }
 
-    public Cliente(Integer id, String nome) {
-        this.id = id;
+    public Cliente(String nome) {
         this.nome = nome;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -29,5 +33,13 @@ public class Cliente {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                '}';
     }
 }

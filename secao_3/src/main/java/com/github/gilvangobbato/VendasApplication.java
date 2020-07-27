@@ -8,8 +8,36 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.List;
+
 @SpringBootApplication
 public class VendasApplication {
+
+    @Bean
+    public CommandLineRunner init(@Autowired ClientesRepository repository){
+        return args -> {
+            System.out.println("Salvando clientes");
+            repository.save(new Cliente("Gilvan"));
+            repository.save(new Cliente("Patricia"));
+
+            List<Cliente> list = repository.findAll();
+            list.forEach(System.out::println);
+
+            System.out.println("Atualizando");
+            list.forEach(c -> {
+                c.setNome(c.getNome().concat(" atual "));
+                repository.save(c);
+            });
+
+            System.out.println("Buscando os clientes novamente");
+            list = repository.findAll();
+            list.forEach(System.out::println);
+
+//            System.out.println("Deletando");
+//            list.forEach(repository::delete);
+
+        };
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(VendasApplication.class, args);
