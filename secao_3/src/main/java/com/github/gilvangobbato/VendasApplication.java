@@ -25,16 +25,20 @@ public class VendasApplication {
 
             System.out.println("Atualizando");
             list.forEach(c -> {
-                c.setNome(c.getNome().concat(" atual "));
+                c.setNome(c.getNome().concat(" atual"));
                 repository.save(c);
             });
 
-            System.out.println("Buscando os clientes novamente");
-            list = repository.findAll();
+            System.out.println("Buscando os clientes by like");
+            list = repository.findByNomeLike("Gil%");
             list.forEach(System.out::println);
 
-//            System.out.println("Deletando");
-//            list.forEach(repository::delete);
+            System.out.println("Deletando");
+            list.forEach(repository::delete);
+
+            System.out.println("Verifica deletados");
+            list = repository.findAll();
+            list.forEach(System.out::println);
 
         };
     }
