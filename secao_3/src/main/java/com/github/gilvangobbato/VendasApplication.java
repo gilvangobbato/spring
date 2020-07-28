@@ -30,7 +30,11 @@ public class VendasApplication {
             });
 
             System.out.println("Buscando os clientes by like");
-            list = repository.findByNomeLike("Gil%");
+            list = repository.searchByQuery("Gil%");
+            list.forEach(System.out::println);
+
+            System.out.println("Buscando os clientes by native query");
+            list = repository.searchByQueryNative("Gil%");
             list.forEach(System.out::println);
 
             System.out.println("Deletando");

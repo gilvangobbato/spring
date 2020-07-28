@@ -1,6 +1,7 @@
 package com.github.gilvangobbato.domain.entity;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "CLIENTE")
@@ -11,12 +12,22 @@ public class Cliente {
     private Long id;
     @Column(name = "NOME", length = 100)
     private String nome;
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
+    private Set<Pedido> pedidos;
 
     public Cliente() {
     }
 
     public Cliente(String nome) {
         this.nome = nome;
+    }
+
+    public Set<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(Set<Pedido> pedidos) {
+        this.pedidos = pedidos;
     }
 
     public Long getId() {

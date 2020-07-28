@@ -1,7 +1,8 @@
 package com.github.gilvangobbato.domain.repository;
 
-import org.springframework.stereotype.Repository;
+import com.github.gilvangobbato.domain.entity.PedidoItem;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 //@Repository
-public class PedidoItemRepository {
+public interface PedidoItemRepository  extends JpaRepository<PedidoItem, Long> {
 }

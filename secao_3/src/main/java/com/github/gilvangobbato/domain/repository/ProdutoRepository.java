@@ -1,7 +1,9 @@
 package com.github.gilvangobbato.domain.repository;
 
+import com.github.gilvangobbato.domain.entity.Produto;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 //@Repository
-public class ProdutoRepository {
+public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 }
