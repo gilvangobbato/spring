@@ -1,56 +1,28 @@
 package com.github.gilvangobbato.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.util.Set;
 
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "CLIENTE")
 public class Cliente {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "NOME", length = 100)
     private String nome;
-    @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
+    @Column(name = "CPF", length = 20)
+    private String cpf;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
     private Set<Pedido> pedidos;
 
-    public Cliente() {
-    }
-
-    public Cliente(String nome) {
-        this.nome = nome;
-    }
-
-    public Set<Pedido> getPedidos() {
-        return pedidos;
-    }
-
-    public void setPedidos(Set<Pedido> pedidos) {
-        this.pedidos = pedidos;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    @Override
-    public String toString() {
-        return "Cliente{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                '}';
-    }
 }
