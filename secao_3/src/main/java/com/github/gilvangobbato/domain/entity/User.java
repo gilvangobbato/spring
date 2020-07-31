@@ -1,5 +1,6 @@
 package com.github.gilvangobbato.domain.entity;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -8,6 +9,7 @@ import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "user")
 public class User {

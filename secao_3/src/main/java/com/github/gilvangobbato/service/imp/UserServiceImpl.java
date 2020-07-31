@@ -2,6 +2,7 @@ package com.github.gilvangobbato.service.imp;
 
 import com.github.gilvangobbato.domain.entity.User;
 import com.github.gilvangobbato.domain.repository.UserRepository;
+import com.github.gilvangobbato.exception.SenhaInvalidaException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -32,5 +33,13 @@ public class UserServiceImpl implements UserDetailsService {
 
     public User save(User user) {
         return repository.save(user);
+    }
+
+    public UserDetails auth(User user){
+        UserDetails details = loadUserByUsername(user.getUsername());
+        if(passwordEncoder.matches(user.getPassword(), details.getPassword())){
+            return details;
+        }
+        throw new SenhaInvalidaException();
     }
 }
