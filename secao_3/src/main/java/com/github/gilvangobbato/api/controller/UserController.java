@@ -20,4 +20,5 @@ public class UserController {
         user.setPassword(encoder.encode(user.getPassword()));
         return userService.save(user);
     }
+
 }
