@@ -3,6 +3,7 @@ package com.github.gilvangobbato.service.imp;
 import com.github.gilvangobbato.domain.entity.User;
 import com.github.gilvangobbato.domain.repository.UserRepository;
 import com.github.gilvangobbato.exception.SenhaInvalidaException;
+import com.github.gilvangobbato.security.JWtService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

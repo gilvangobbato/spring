@@ -16,4 +16,4 @@ spring:
 security:
   jwt:
     expiracao: 30
-    chave-assinatura: byBwYXBhaSBHaWx2YW4gw6kgZm9kYQ==
+    chave-assinatura: TWFzIHNvIG8gcXVlIG1lIGZhbHRhIG1lc21vLCBhY2hlIHF1ZSBvIHF1ZSBldSBoYXZpYSBnZXJhZG8gYmFzdGF2YSwgbWFzIHBlbG8gamVpdG8gbsOjbw==
