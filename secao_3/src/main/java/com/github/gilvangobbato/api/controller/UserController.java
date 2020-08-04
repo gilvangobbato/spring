@@ -34,7 +34,7 @@ public class UserController {
         try {
             User user = User.builder()
                     .username(credentials.getUsername())
-                    .password(credentials.getPassword()).build();
+                    .password(encoder.encode(credentials.getPassword())).build();
             UserDetails userAuth = userService.auth(user);
             TokenDTO token = new TokenDTO();
             token.setToken(jwtService.gerarToken(user));
